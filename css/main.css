@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+--index: calc(1vw + 1vh);
+--transition: 1s cubic-bezier(.05, .5, 0, 1 )
+
+}
+
+@font-face {
+    font-family: kamerik-3d;
+    src: url(/fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: merriweather-italic-3d;
+    src: url(/fonts/merriweather-regular-italic.woff2);
+}
+
+body{
+    background-color: black;
+    color: white;
+    font-family: kamerik-3d;
+}
+
+
+.layers{
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.layers__container{
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    transition: all var(--transition) ;
+}
+
+.layers__item{
+    position: absolute;
+    inset: -8vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.layer-1 {
+    transform: translateZ(-70px) scale(1.06);
+}
+
+.layer-2 {
+    transform: translateZ(80px) scale(.88);
+}
+
+.layer-3 {
+    transform: translateZ(180px) scale(.88);
+}
+
+.layer-4 {
+    transform: translateZ(190px) scale(.88);
+}
+
+.layer-5 {
+    transform: translateZ(300px) scale(.88);
+}
+
+.layer-6 {
+   transform: translateZ(380px) ; 
+}
+
+
+
+
+
+.hero-content {
+    font-size: calc(var(--index) * 1.4);
+    text-align: center;
+    text-transform: uppercase;
+
+}
+.hero-content__p {
+    font-size: calc(var(--index) * 0.8);
+    font-family: merriweather-italic-3d;    
+    text-transform: lowercase;
+}
+
+.hero-content__p::first-letter{
+    text-transform: uppercase;
+}
+.button-start {
+    margin: 30px 0 0;
+    background: rgba(255, 255, 255, 0.041);
+    padding:  10px 40px;
+    color: white ;
+    border: none;
+    outline: 2px solid rgba(255, 255, 255, 0.342);
+    border-radius: 20px;
+    font-family: kamerik-3d;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.rain,
+.layer-4,
+.layer-5,
+.layer-6{
+    pointer-events: none;
+}
